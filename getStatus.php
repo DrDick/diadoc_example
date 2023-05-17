@@ -2,10 +2,10 @@
 
 //title: получаем статусы
 
-$login = "vostrotin00@gmail.com"; //имя учетной записи пользователя
-$password = "eBF_ze^fRAyD1"; //пароль учетной записи пользователя
-$key = "API-0b37ebe9-a9d6-498a-8895-979516597791"; //ключ, полученный доверенным сервисом
-$id = "802b0d0b-5b6f-4ed7-bbe8-982d21886bd4"; //идентификатор пользователя доверенного сервиса
+$login = ""; //имя учетной записи пользователя
+$password = ""; //пароль учетной записи пользователя
+$key = ""; //ключ, полученный доверенным сервисом
+$id = ""; //идентификатор пользователя доверенного сервиса
 
 
 $data = array(
@@ -16,9 +16,9 @@ $data = array(
 );
 
 
-$url = 'https://diadoc-api.kontur.ru/Authenticate?login=vostrotin00@gmail.com&password=eBF_ze^fRAyD1';
+$url = 'https://diadoc-api.kontur.ru/Authenticate?login=&password=';
 $headers = array(
-'Authorization: DiadocAuth ddauth_api_client_id=API-0b37ebe9-a9d6-498a-8895-979516597791', //вставить свой id
+'Authorization: ', //вставить свой id
 'Content-Type: application/json'
 );
 
@@ -35,7 +35,7 @@ var_dump($response);
 
 
 $headers = array(
-'Authorization: DiadocAuth ddauth_api_client_id=API-0b37ebe9-a9d6-498a-8895-979516597791 ddauth_token=' . $response . '', //вставить свой id
+'Authorization: DiadocAuth ddauth_api_client_id=' . $response . '', //вставить свой id
 'Content-Type: application/json charset=utf-8',
 'Accept: application/json'
 );
@@ -70,14 +70,14 @@ $documentAttachment = mb_convert_encoding($documentAttachment, 'UTF-8', 'UTF-8')
 
 // Заполнение информации о документе в MessageToPost
 $messageToPost = array(
-"FromBoxId" => '2648925ce9ec47b683ec0266d98cc218',
-"ToBoxId" => 'eb3c24cea3a84cc39056020cfed33c5b',
+"FromBoxId" => '',
+"ToBoxId" => '',
 "DocumentAttachments" => array($documentAttachment),
 //"StructuredDataAttachments" => array($documentAttachment)
 );
 
 $inn = 6671273007;
-$get_counterparty_url = "https://diadoc-api.kontur.ru/V3/GetDocument?boxId=2648925ce9ec47b683ec0266d98cc218&messageId=17b48fae-2aca-4f34-878d-45fd73b5b1b0&EntityId=04499e61-b39a-4e44-96e7-043bb52fa283";
+$get_counterparty_url = "https://diadoc-api.kontur.ru/V3/GetDocument?boxId=";
 
 
 $data_json = json_encode($messageToPost, JSON_THROW_ON_ERROR);
